@@ -18,13 +18,15 @@ function AppContent() {
   const isHome = location.pathname === '/';
 
   return (
-    <div className="flex flex-col h-screen bg-gradient-to-b from-gray-950 via-blue-950 to-gray-950 text-gray-100">
-      {/* Top Menu */}
+    <div className="flex flex-col h-screen text-gray-100">
+      {/* Top Menu 
+      
       <div className="bg-gray-950/90 backdrop-blur-md border-b border-blue-900/50">
         <div className="max-w-4xl mx-auto px-3 py-2">
           <TopMenu isOpen={isMenuOpen} onToggle={() => setIsMenuOpen(!isMenuOpen)} />
         </div>
       </div>
+     */}
       
       {/* Main Content Area */}
       <div className="flex-1 overflow-hidden pb-20 pt-6">
@@ -130,7 +132,7 @@ function AppContent() {
         </nav>
       </div>
 
-      {isHome && <BottomMenu />}
+      {isHome /*&& <BottomMenu />*/}
     </div>
   );
 }

@@ -21,7 +21,7 @@ function ThinkingIndicator() {
       <div className="max-w-[80%] rounded-2xl px-4 py-2 bg-gray-900 rounded-tl-sm">
         <div className="flex items-center gap-2 mb-1">
           <Bot className="w-4 h-4" />
-          <span className="text-sm font-medium text-blue-300">AI Workshop Assistant</span>
+          <span className="text-sm font-medium text-blue-300">Chrysalis AI Assistant</span>
         </div>
         <div className="flex items-center gap-2 text-gray-400">
           <span>Thinking</span>
@@ -61,7 +61,7 @@ export function ChatWindow() {
         } catch (error) {
           console.error('Error initializing chat:', error);
           setMessages([{
-            content: "Hello! I'm your AI Workshop Assistant. How can I help you today?",
+            content: "Hello! I'm your Chrysalis AI Assistant. How can I help you today?",
             isBot: true,
           }]);
         } finally {
@@ -121,7 +121,7 @@ export function ChatWindow() {
               {message.isBot && (
                 <div className="flex items-center gap-2 mb-1">
                   <Bot className="w-4 h-4" />
-                  <span className="text-sm font-medium text-blue-300">AI Workshop Assistant</span>
+                  <span className="text-sm font-medium text-blue-300">Chrysalis AI Assistant</span>
                 </div>
               )}
               <p className="text-gray-100 whitespace-pre-line">{message.content}</p>
@@ -141,7 +141,7 @@ export function ChatWindow() {
             type="text"
             value={input}
             onChange={(e) => setInput(e.target.value)}
-            placeholder="Ask about AI, machine learning, or data science..."
+            placeholder="Ask Chrysalis AI about the Chrysalis Teachings..."
             className="flex-1 bg-gray-900 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500 border border-blue-900"
             disabled={isLoading}
           />
