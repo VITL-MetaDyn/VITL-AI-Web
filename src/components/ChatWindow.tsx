@@ -57,7 +57,7 @@ export function ChatWindow() {
       const initializeChat = async () => {
         try {
           const response = await openaiService.sendMessage("who are you and why are you here");
-          setMessages([{ content: response, isBot: true }]);
+          setMessages([{ content: response || '', isBot: true }]);
         } catch (error) {
           console.error('Error initializing chat:', error);
           setMessages([{
@@ -83,8 +83,8 @@ export function ChatWindow() {
     setMessages(prev => [...prev, { content: userMessage, isBot: false }]);
 
     try {
-      const response = await openaiService.sendMessage(userMessage);
-      const formattedResponse = formatAIResponse(response);
+      const response = await openaiService.sendMessage(userMessage);      
+      const formattedResponse = response ? formatAIResponse(response) : '';
       setMessages(prev => [...prev, { content: formattedResponse, isBot: true }]);
     } catch (error) {
       console.error('Error sending message:', error);
@@ -121,7 +121,7 @@ export function ChatWindow() {
               {message.isBot && (
                 <div className="flex items-center gap-2 mb-1">
                   <Bot className="w-4 h-4" />
-                  <span className="text-sm font-medium text-blue-300">Chrysalis AI Assistant</span>
+                  <span className="text-sm font-medium text-blue-300">VAL - VITL AI Assistant</span>
                 </div>
               )}
               <p className="text-gray-100 whitespace-pre-line">{message.content}</p>
@@ -141,7 +141,7 @@ export function ChatWindow() {
             type="text"
             value={input}
             onChange={(e) => setInput(e.target.value)}
-            placeholder="Ask Chrysalis AI about the Chrysalis Teachings..."
+            placeholder="Ask VAL - VITL AI Assistant..."
             className="flex-1 bg-gray-900 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500 border border-blue-900"
             disabled={isLoading}
           />
